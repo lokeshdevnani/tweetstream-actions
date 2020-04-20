@@ -4,7 +4,7 @@ class CreateConfigHashtags < ActiveRecord::Migration[5.2]
       t.text :hashtag
 
       t.timestamps
-      t.index :hashtag
+      t.index :hashtag, unique: true
     end
   end
 end

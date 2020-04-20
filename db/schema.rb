@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_220042) do
     t.text "hashtag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hashtag"], name: "index_config_hashtags_on_hashtag"
+    t.index ["hashtag"], name: "index_config_hashtags_on_hashtag", unique: true
   end
 
   create_table "config_nth_user_tweets", force: :cascade do |t|
@@ -46,10 +46,11 @@ ActiveRecord::Schema.define(version: 2020_04_19_220042) do
   end
 
   create_table "user_tweet_counters", force: :cascade do |t|
-    t.string "username"
+    t.string "username", null: false
     t.integer "tweet_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_user_tweet_counters_on_username", unique: true
   end
 
 end
