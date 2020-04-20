@@ -5,7 +5,6 @@ class TaskProcessor
 
   def perform_async(task)
     # TODO: Use sidekiq/rescue for this
-    task.execute
-    # Thread.new { task.execute }
+    Thread.new { task.execute }
   end
 end

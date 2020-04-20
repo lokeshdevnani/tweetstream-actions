@@ -1,4 +1,12 @@
 class TweetProcessor
+  DEFAULT_TRIGGERS = [HashtagProcessor, NthUserTweetProcessor]
+
+  def self.with_default_triggers
+    instance = self.new
+    DEFAULT_TRIGGERS.each {|trigger| instance.register_trigger(trigger) }
+    return instance
+  end
+
   def initialize
     @triggers = []
   end
@@ -14,5 +22,6 @@ class TweetProcessor
     @triggers.each do |trigger|
       trigger.new(tweet).process
     end
+    true
   end
 end

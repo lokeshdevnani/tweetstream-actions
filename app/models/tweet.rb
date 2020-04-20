@@ -6,5 +6,9 @@ class Tweet
     @hashtags = hashtags
     @content = content
     @location = location
+
+    raise ArgumentError, 'Username is required' if @username.blank?
+
+    raise ArgumentError, 'Content is required' if @content.blank?
   end
 end
