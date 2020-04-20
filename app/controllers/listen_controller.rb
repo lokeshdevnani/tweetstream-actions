@@ -14,7 +14,7 @@ class ListenController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def tweet_params
-      params.fetch(:tweet, {})[:tweet]
+      params.fetch("tweet", {})
             .permit(*WHITELISTED_TWEET_KEYS, hashtags: [])
             .as_json.symbolize_keys
     end

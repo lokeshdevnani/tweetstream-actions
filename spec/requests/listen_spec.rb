@@ -18,21 +18,17 @@ RSpec.describe "/listen", type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-        tweet: {
-            username: 'lokeshdevnani',
-            content: 'Incredible #india',
-            hashtags: ["india"]
-        }
+      username: 'lokeshdevnani',
+      content: 'Incredible #india',
+      hashtags: ["india"]
     }
   }
 
   let(:invalid_attributes) {
     {
-        tweet: {
-            # username missing
-            content: 'Incredible #india',
-            hashtags: ["india"]
-        }
+      # username missing
+      content: 'Incredible #india',
+      hashtags: ["india"]
     }
   }
 
